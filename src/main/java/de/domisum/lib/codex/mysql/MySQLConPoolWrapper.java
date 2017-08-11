@@ -31,6 +31,11 @@ public class MySQLConPoolWrapper
 		this.connectionPool = new HikariDataSource(hikariConfig);
 	}
 
+	@APIUsage public void close()
+	{
+		this.connectionPool.close();
+	}
+
 
 	// GETTERS
 	@APIUsage public Connection getConnection()
