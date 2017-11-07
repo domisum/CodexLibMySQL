@@ -2,12 +2,12 @@ package de.domisum.lib.codex.mysql;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
-import de.domisum.lib.auxilium.util.java.annotations.APIUsage;
+import de.domisum.lib.auxilium.util.java.annotations.API;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 
-@APIUsage
+@API
 public class MySQLConPoolWrapper
 {
 
@@ -15,7 +15,7 @@ public class MySQLConPoolWrapper
 
 
 	// INIT
-	@APIUsage public MySQLConPoolWrapper(String serverAddress, int serverPort, String username, String password)
+	@API public MySQLConPoolWrapper(String serverAddress, int serverPort, String username, String password)
 	{
 		HikariConfig hikariConfig = new HikariConfig();
 		hikariConfig.setDataSourceClassName("com.mysql.cj.jdbc.MysqlDataSource");
@@ -31,14 +31,14 @@ public class MySQLConPoolWrapper
 		this.connectionPool = new HikariDataSource(hikariConfig);
 	}
 
-	@APIUsage public void close()
+	@API public void close()
 	{
 		this.connectionPool.close();
 	}
 
 
 	// GETTERS
-	@APIUsage public Connection getConnection()
+	@API public Connection getConnection()
 	{
 		try
 		{
